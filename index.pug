@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Quy Bui - Software Engineering Technology Student Portfolio")
+    meta(name="keywords" content="Software Developer, Co-op Student, React.js, ASP.NET, Full-Stack Developer")
+    title Quy Bui - Software Engineering Portfolio
+    link(rel="stylesheet" href="styles/main.css")
+  body
+    //- Navigation
+    nav
+      .container
+        .logo QB
+        ul
+          li: a(href="#home") Home
+          li: a(href="#goals") Goals
+          li: a(href="#about") About
+          li: a(href="#education") Education
+          li: a(href="#skills") Skills
+          li: a(href="#projects") Projects
+          li: a(href="#awards") Awards
+          li: a(href="#contact") Contact
+    
+    //- All Sections
+    include ./Sections/all-sections.pug
+    
+    //- Footer
+    footer
+      p &copy; 2025 #{profile.name}. Built with passion and curiosity.
+    
+    //- Scripts
+    script(src="js/main.js")

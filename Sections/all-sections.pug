@@ -1,0 +1,245 @@
+include ../Data/portfolio-data.pug
+
+section#home.LeHaiQuyBui
+  .LeHaiQuyBui-content
+    .LeHaiQuyBui-avatar
+      img(src=profile.avatar alt=profile.name)
+    h1= profile.name
+    p= profile.title + ' | ' + profile.subtitle
+    .LeHaiQuyBui-badges
+      span.badge
+        img.badge-icon(src="https://cdn-icons-png.flaticon.com/512/3976/3976625.png")
+        | Co-op Student
+      span.badge
+        img.badge-icon(src="https://cdn-icons-png.flaticon.com/512/854/854878.png")
+        | Vietnam → Canada
+      span.badge
+        img.badge-icon(src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png")
+        | Available Summer 2026
+    a.btn(href="#contact") Get In Touch
+    a.btn.btn-secondary(href="#about") View Portfolio
+
+section#goals
+  .container
+    h2 Career Goals & Philosophy
+    .goals-content
+      h3 My Philosophy
+      p= goals.philosophy
+      .goals-grid
+        div
+          h3 Short-term Goals
+          p= goals.shortTerm
+        div
+          h3 Long-term Goals
+          p= goals.longTerm
+
+section#about
+  .container
+    h2 About Me
+    .about-content
+      .about-image
+        img(src=profile.avatar alt=profile.name)
+      .about-text
+        p= profile.bio
+        p I've been building small web applications using C#, React.js, ASP.NET, and MySQL to practice what I learn in class. Projects like collaborative planning tools and interactive maps have taught me a great deal about full-stack development, although I know I still have much to learn.
+        p My journey in tech started in Vietnam, where I participated in the ICPC national competition. After realizing telecommunications wasn't my true calling, I moved to Canada to pursue software engineering technology.
+        p Was President of the Data Structures, Algorithms, and SE Club, I helped organize coding contests and foster a community of learners passionate about technology. I believe the best way to learn is by doing and sharing knowledge with others.
+    
+    .stats
+      .stat-card
+        h3= profile.gpa
+        p Current GPA
+      .stat-card
+        h3 5+
+        p Projects Completed
+      .stat-card
+        h3 3+
+        p Hackathons
+      .stat-card
+        h3 1
+        p ICPC Competition
+    
+    .download-section
+      a.btn(href="#contact") Request Full Resume
+
+section#education
+  .container
+    h2 Education & Training
+    each edu in education
+      .education-card
+        .education-header
+          div
+            h3= edu.degree
+            p= edu.school + ', ' + edu.location
+          .education-date= edu.period
+        
+        p
+          strong GPA: #{edu.gpa}
+          if edu.average
+            |  (Current Average: #{edu.average})
+        
+        if edu.achievements
+          p(style="color: var(--text-light); margin-top: 0.5rem;") Notable Achievements:
+          ul(style="list-style: none; margin-top: 0.5rem;")
+            each achievement in edu.achievements
+              li(style="color: var(--text-light); padding: 0.3rem 0;") • #{achievement.grade} - #{achievement.course}
+        
+        if edu.coursework
+          .coursework
+            strong Relevant Coursework:
+            .coursework-grid
+              each course in edu.coursework
+                .course-item= course
+        
+        if edu.activities
+          p(style="color: var(--text-light); margin-top: 1rem;")
+            each activity in edu.activities
+              | • #{activity}
+        
+        if edu.note
+          p.education-note(style="color: var(--text-light); margin-top: 1rem; font-style: italic; background: #fef3c7; padding: 1rem; border-radius: 5px; border-left: 3px solid #f59e0b;")= edu.note
+        
+        if edu.highlights
+          ul(style="list-style: none; margin-top: 0.5rem;")
+            each highlight in edu.highlights
+              li(style="color: var(--text-light); padding: 0.3rem 0;") • #{highlight}
+        
+        if edu.credentialURL
+          a.cert-link(href=edu.credentialURL target="_blank")
+            img.link-icon(src="https://cdn-icons-png.flaticon.com/512/3209/3209897.png")
+            | Show Credential
+
+section#skills
+  .container
+    h2 Technical Skills
+    .skills-grid
+      .skill-category
+        h3 Languages
+        ul
+          each skill in skills.languages
+            li= skill
+      .skill-category
+        h3 Frameworks & Libraries
+        ul
+          each skill in skills.frameworks
+            li= skill
+      .skill-category
+        h3 Backend & Databases
+        ul
+          each skill in skills.backend
+            li= skill
+      .skill-category
+        h3 Tools & Platforms
+        ul
+          each skill in skills.tools
+            li= skill
+
+section#projects
+  .container
+    h2 Work Samples & Projects
+    .projects-grid
+      each project in projects
+        .project-card
+          .project-header
+            h3= project.title
+            p.project-date= project.date
+          .project-body
+            p= project.description
+            .tech-tags
+              each tech in project.technologies
+                span.tech-tag= tech
+            .project-links
+              if project.github
+                a(href=project.github target="_blank")
+                  img.link-icon(src="https://cdn-icons-png.flaticon.com/512/733/733553.png")
+                  | View Code
+              if project.demo
+                a(href=project.demo target="_blank")
+                  img.link-icon(src="https://cdn-icons-png.flaticon.com/512/929/929416.png")
+                  | Live Demo
+
+section#certifications
+  .container
+    h2 Licenses & Certifications
+    .certifications-grid
+      each cert in certifications
+        .certification-card
+          .cert-header
+            img.cert-badge(src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png")
+            div
+              h3= cert.name
+              p.cert-issuer= cert.issuer
+          p.cert-date Issued: #{cert.date}
+          p.cert-id Credential ID: #{cert.credentialId}
+          if cert.credentialUrl
+            a.cert-link(href=cert.credentialUrl target="_blank")
+              img.link-icon(src="https://cdn-icons-png.flaticon.com/512/3209/3209897.png")
+              | Show Credential
+
+section#awards
+  .container
+    h2 Honors & Awards
+    .awards-grid
+      each award in awards
+        .award-card
+          .award-icon
+            img.award-image(src=award.imageUrl alt=award.title)
+          h3= award.title
+          p.award-issuer= award.issuer
+          p.award-date= award.date
+          p= award.description
+    
+    .activities-list(style="margin-top: 3rem;")
+      h2 Leadership & Activities
+      each activity in activities
+        .activity-item
+          .activity-header
+            div
+              h3= activity.title
+              p.activity-org= activity.organization
+            span(style="color: var(--text-light);")= activity.period
+          ul
+            each responsibility in activity.responsibilities
+              li= responsibility
+          
+          if activity.imageURL
+            each item in activity.imageURL
+              img.activity-img(src=item)
+          
+          if activity.credentialUrl
+            each item in activity.credentialUrl
+              a.cert-link(href=item target="_blank")
+                img.link-icon(src="https://cdn-icons-png.flaticon.com/512/3209/3209897.png")
+                | Show Credential
+
+section#contact
+  .container
+    h2 Let's Connect
+    .contact-form
+      p(style="text-align: center; color: var(--text-light); margin-bottom: 2rem;") I'm currently seeking a Co-op position for Summer 2026 (8-16 months). Fill out the form below to get in touch!
+      
+      form#contactForm(action="https://formspree.io/f/manpbeqj" method="POST")
+        .form-group
+          label(for="name") Name *
+          input(type="text" id="name" name="name" required)
+        .form-group
+          label(for="email") Your email: *
+          input(type="email" id="email" name="email" required)
+        .form-group
+          label(for="subject") Subject *
+          input(type="text" id="subject" name="subject" required)
+        .form-group
+          label(for="message") Your message: *
+          textarea(id="message" name="message" required)
+        button.submit-btn(type="submit") Send
+      
+      .social-links
+        a(href="mailto:lehaiquybui@gmail.com")
+          img.social-icon(src="https://cdn-icons-png.flaticon.com/512/732/732200.png")
+          | Email
+        a(href=profile.linkedin target="_blank")
+          img.social-icon(src="https://cdn-icons-png.flaticon.com/512/174/174857.png")
+          | LinkedIn
+        a(href=profile.github target="_blank")
+          img.social-icon(src="https://cdn-icons-png.flaticon.com/512/733/733553.png")
+          | GitHub
