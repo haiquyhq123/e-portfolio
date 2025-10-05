@@ -1,19 +1,19 @@
 # E-Portfolio
 
-A personal portfolio website built with Pug.js templating and AI-assisted styling.
+My personal portfolio website - simple and easy to maintain.
 
 ## Overview
 
-This is my e-portfolio website built with a focus on maintainability and faster development.
+Built this with Pug.js because copy-pasting HTML everywhere was driving me crazy. Now I can update stuff in one place. Much better.
 
 ## Technologies
 
-- **Pug.js** - HTML templating for modular components
-- **CSS** - AI-assisted styling
+- **Pug.js** - I wrote everything in Pug, compiled it to HTML for GitHub Pages, then let AI add the styling classes and IDs because I suck at CSS and wanted to finish this fast =)) (Turns out AI made my code look clean and professional. Hopefully no one reads this README too carefully lol)
 
-## Why This Approach?
+- **CSS** - Claude did all the styling. I just said "looks good" and changed a color or two. (Thanks Claude, you're the real MVP here)
 
-**Pug.js for HTML**: I use Pug.js to create modular HTML components that are easy to maintain and update. This keeps the codebase organized and reduces repetition.
+- **Formspree** - Handles contact form emails. Building a whole backend for that? Nah.
 
-**AI-Assisted CSS**: I leveraged AI to help with CSS styling since I don't have much time for design work and it's not my strength. This allowed me to focus on content and functionality.
+## Why This Stack?
 
+Pug keeps things organized, AI does the styling I'd mess up anyway, and I even get clean code out of it. Work smarter, not harder - aka "I let AI fix my CSS skills" 😂
