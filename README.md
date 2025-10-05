@@ -4,7 +4,7 @@ A personal portfolio website built with Pug.js templating and AI-assisted stylin
 
 ## Overview
 
-This is my e-portfolio website built with a focus on maintainability and efficient development.
+This is my e-portfolio website built with a focus on maintainability and faster development.
 
 ## Technologies
 
